@@ -173,20 +173,26 @@ public class PacBoard extends JPanel{
                     if (!g.isWeak()) {
                         if (vids !=0) {
 
+                            pacman.pixelPosition = new Point( 28*1, 28*3);
+                            pacman.logicalPosition = new Point(1, 3);
+
+
+
+
                             //pacman = (md_backup.getPacmanPosition().y = 25; md_backup.getPacmanPosition().x = 4);
                             //pacman = new Pacman(md.getPacmanPosition().x,md.getPacmanPosition().y,this);
                             //pacman = new Pacman(pacman.pixelPosition.x = 1,3,this);
                             //new Pacman(md_backup.getPacmanPosition().x = 1,md_backup.getPacmanPosition().y = 1, this);
                             //addKeyListener(pacman);
-                            //System.out.println("1.PAcboard");
+                            System.out.println("1.PAcboard");
                             //this.md_backup.getPacmanPosition().y = 1;
                             //this.md_backup.getPacmanPosition().x = 3;
-                            
+
                             drawVida = true;
                             vidaToAdd--;
                             vidas--;
                             vids--;
-                            scoreboard.setText("    Vidas : "+vids);
+                            vidasboard.setText(" perdiste una vida te quedan:" +vids);
 
                         } else{
                        // Game Over
