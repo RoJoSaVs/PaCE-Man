@@ -90,7 +90,7 @@ void createFunction(char *ptr){
 
     //char *message_to_client=totalData;
     char message_to_client[]="hola desde el server, desde el archivo call_Server";
-    printf("\n mensaje del cliente: %s\n", send_to_client(message_to_client,512));
+    printf("\n mensaje del cliente: %s", send_to_client(message_to_client,512));
 }
 
 
@@ -158,7 +158,7 @@ void readLine(){
     char *ptr;
 
     while(isRunning){
-        printf("Ingrese el comando: ");
+        printf("\n Ingrese el comando: ");
         gets(word);
         init_size = strlen(word);
         ptr = strtok(word, " ");
