@@ -26,8 +26,6 @@
 
 char* send_to_client(char* message_to_client,int size_of_message)
 {
-
-    printf("%s",message_to_client);
     
     WSADATA wsaData;
     int iResult;

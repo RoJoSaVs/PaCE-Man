@@ -17,6 +17,7 @@ public class Client {
                 new DataOutputStream(clientSocket.getOutputStream());
 
         outToServer.writeBytes("p"+ '\n');
+        //Thread.sleep(100);
         outToServer.writeBytes(message+ '\n');
 
         BufferedReader inFromServer =
