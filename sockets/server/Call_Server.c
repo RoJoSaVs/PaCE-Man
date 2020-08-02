@@ -9,7 +9,7 @@
 
 int main(){
   char message_to_client[]="hola desde el server, desde el archivo call_Server";
-  printf("\n mensaje del cliente: %s\n", send_to_client(message_to_client));
+  printf("\n mensaje del cliente: %s\n", send_to_client(message_to_client,sizeof(message_to_client)));
   Sleep(12000);
   return 0;  
 }

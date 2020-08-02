@@ -24,9 +24,11 @@
 #define DEFAULT_BUFLEN 512
 #define DEFAULT_PORT "8080"
 
-char* send_to_client(char* message_to_client)
+char* send_to_client(char* message_to_client,int size_of_message)
 {
 
+    printf("%s",message_to_client);
+    
     WSADATA wsaData;
     int iResult;
 
@@ -42,7 +44,7 @@ char* send_to_client(char* message_to_client)
 
     //variables 
 
-    char respuesta[DEFAULT_BUFLEN];
+    char respuesta[size_of_message];
 
     char *error= malloc(10);
     strcpy(error,"error");
