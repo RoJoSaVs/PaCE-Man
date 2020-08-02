@@ -88,8 +88,8 @@ void createFunction(char *ptr){
         printf(" no se puede crear\n");
     }
 
-    //char *message_to_client=totalData;
-    char message_to_client[]="hola desde el server, desde el archivo call_Server";
+    char *message_to_client=totalData;
+    //char message_to_client[]="hola desde el server, desde el archivo call_Server";
     printf("\n mensaje del cliente: %s", send_to_client(message_to_client,512));
 }
 
