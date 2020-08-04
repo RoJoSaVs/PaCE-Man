@@ -119,7 +119,7 @@ char* send_to_client(char* message_to_client,int size_of_message)
         iResult = recv(ClientSocket, recvbuf, recvbuflen, 0);
         strcpy(desde_cliente,recvbuf);
         if (iResult > 0) {
-            printf("Bytes received: %d\n", iResult);
+            //printf("Bytes received: %d\n", iResult);
 
         // Echo the buffer back to the sender
             strcpy(respuesta,message_to_client);
@@ -130,7 +130,7 @@ char* send_to_client(char* message_to_client,int size_of_message)
                 WSACleanup();
                 return error;
             }
-            printf("Bytes sent: %d\n", iSendResult);
+            //printf("Bytes sent: %d\n", iSendResult);
         }
         else if (iResult == 0)
             printf("Connection closing...\n");
@@ -155,6 +155,9 @@ char* send_to_client(char* message_to_client,int size_of_message)
     // cleanup
     closesocket(ClientSocket);
     WSACleanup();
+
+    //printf("diay porque no imprimio");
+    //printf("%d", sizeof(desde_cliente));
 
     return desde_cliente;
 }

@@ -18,8 +18,8 @@ void createFunction(char *ptr){
             ghost = createBlinky();
             sprintf(totalData, "%d %d %d %d %c ", ghost.chasing, ghost.position.posX, 
                     ghost.position.posY, ghost.speed, ghost.colorId);
-            printf("%s", totalData);
-            printf("Blinky\n");
+            //printf("%s", totalData);
+            //printf("Blinky\n");
 
         }
 
@@ -50,7 +50,6 @@ void createFunction(char *ptr){
         else{
             printf("El fantasma no existe\n");
         }
-        printf("Ghost function to set a ghost in server an client\n");
 
     }
 
@@ -109,8 +108,8 @@ void setSpeedFunction(char *ptr){
         ghost = editSpeed(ghost, speed);
         sprintf(totalData, "%d %d %d %d %c ", ghost.chasing, ghost.position.posX, 
                     ghost.position.posY, ghost.speed, ghost.colorId);
-            printf("%s", totalData);
-        printf("Blinky\n");
+        //printf("%s", totalData);
+       // printf("Blinky\n");
     }
 
     else if (strcmp(ptr, "I") == 0){
@@ -120,8 +119,8 @@ void setSpeedFunction(char *ptr){
         ghost = editSpeed(ghost, speed);
         sprintf(totalData, "%d %d %d %d %c ", ghost.chasing, ghost.position.posX, 
                     ghost.position.posY, ghost.speed, ghost.colorId);
-            printf("%s", totalData);
-        printf("Inky\n");
+        //printf("%s", totalData);
+        //printf("Inky\n");
     }
     else if (strcmp(ptr, "P") == 0){
         ghost = createPinky();
@@ -130,7 +129,7 @@ void setSpeedFunction(char *ptr){
         ghost = editSpeed(ghost, speed);
         sprintf(totalData, "%d %d %d %d %c ", ghost.chasing, ghost.position.posX, 
                     ghost.position.posY, ghost.speed, ghost.colorId);
-            printf("%s", totalData);
+        printf("%s", totalData);
         printf("Pinky\n");
     }
     else if (strcmp(ptr, "C") == 0){
