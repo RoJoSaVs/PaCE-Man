@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import static java.lang.Thread.sleep;
 
-public class PacBoard extends JPanel  {
+public class PacBoard extends Cliente  {
 
 
     Timer redrawTimer;
