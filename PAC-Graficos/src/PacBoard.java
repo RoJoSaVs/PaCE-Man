@@ -557,9 +557,12 @@ public class PacBoard extends JPanel{
                     String name = null;
                     try {
                         name = reader.readLine();
-                        //if(Servermessage.equals("w")){
+                        Client client=new Client();
+                        String Servermessage=client.send_to_server("mensaje de prueba para el servidor");
+                        client=null;
+                        if(Servermessage.equals("w")){
                             CrearFantasma( Integer.parseInt(name));
-                        //}
+                        }
 
                     } catch (IOException e) {
                         e.printStackTrace();
