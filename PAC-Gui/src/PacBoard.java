@@ -548,33 +548,18 @@ public class PacBoard extends Client  {
 
         if(ae.getID()==Messeges.UPDATE) {
             update();
-            BufferedReader reader =
-                    new BufferedReader(new InputStreamReader(System.in));
-
-            // Reading data using readLine
-            String name = null;
+            
+            Client client=new Client();
+            String Servermessage = "w";
             try {
-                name = reader.readLine();
-                Client client=new Client();
-                String Servermessage = "w";
-                try {
-                    Servermessage = client.send_to_server("mensaje de prueba para el servidor");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                client=null;
-                if(!Servermessage.equals("w")){
-                    CrearFantasma(1,1);
-                }
-
-            } catch (IOException e) {
+                Servermessage = client.send_to_server("mensaje de prueba para el servidor");
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-
-            // Printing the read line
-            System.out.println(name);
-            //object.start();}
-
+            // client=null;
+            if(!Servermessage.equals("w")){
+                CrearFantasma(1,1);
+            }
 
         } else if(ae.getID()==Messeges.GHOST) {
             /*BufferedReader reader =
