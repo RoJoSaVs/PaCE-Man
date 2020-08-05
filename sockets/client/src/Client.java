@@ -7,25 +7,30 @@ import java.net.*;
 public class Client {
     int port=8080;
 
-    public String send_to_server(String message) throws Exception{
-        String modifiedSentence;
+    public String send_to_server(String message) throws Exception {
+        try {
+            String modifiedSentence;
 
-        Socket clientSocket = new Socket("localhost", port);
+            Socket clientSocket = new Socket("localhost", port);
 
-        OutputStream output = clientSocket.getOutputStream();
-        PrintWriter writer = new PrintWriter(output, true);
-        writer.println(message);
-
-
-        BufferedReader inFromServer =
-                new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            OutputStream output = clientSocket.getOutputStream();
+            PrintWriter writer = new PrintWriter(output, true);
+            writer.println(message);
 
 
-        modifiedSentence = inFromServer.readLine();
+            BufferedReader inFromServer =
+                    new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
-        clientSocket.close();
 
-        return modifiedSentence;
+            modifiedSentence = inFromServer.readLine();
+
+            clientSocket.close();
+
+            return modifiedSentence;
+        }
+        catch (IOException exception){
+            return "w";//w es el símbolo de error de nuestro programa
+        }
     }
-    
+
 }
