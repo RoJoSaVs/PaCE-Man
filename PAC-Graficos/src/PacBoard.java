@@ -4,8 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.lang.Thread;
+
+import static java.lang.Thread.sleep;
 
 public class PacBoard extends JPanel{
 
@@ -23,7 +28,7 @@ public class PacBoard extends JPanel{
     Image vicImage;
 
     Pacman pacman;
-    Pacman pacman1;
+
     ArrayList<Food> foods;
     ArrayList<PowerUpFood> pufoods;
     ArrayList<Ghost> ghosts;
@@ -55,8 +60,25 @@ public class PacBoard extends JPanel{
     public int m_x;
     public int m_y;
 
+    boolean colisionfantasma = false;
+    int colisionfantasm = 1;
+    boolean colisionfruta = false;
+    int colisionfrut = 2;
+    int n ;
+    int m ;
+
+    boolean powerup = false;
+    int powerupp = 3;
+    Timer Mover;
+
     MapData md_backup;
     PacWindow windowParent;
+
+   // public void dato (int m ,int n){
+     //   this.m = m;
+       // this.n = n;
+
+    //}
 
     public PacBoard(JLabel scoreboard, JLabel vidasboard,MapData md,PacWindow pw){
         this.scoreboard = scoreboard;
@@ -64,22 +86,20 @@ public class PacBoard extends JPanel{
         this.setDoubleBuffered(true);
         md_backup = md;
         windowParent = pw;
-        
+
         m_x = md.getX();
         m_y = md.getY();
         this.map = md.getMap();
 
 
-
+        //Fantasmas
         this.isCustom = md.isCustom();
         this.ghostBase = md.getGhostBasePosition();
 
         //loadMap();
 
         pacman = new Pacman(md.getPacmanPosition().x,md.getPacmanPosition().y,this);
-       // addKeyListener(pacman);
-      //  System.out.println(md.getPacmanPosition().x);
-        //System.out.println(md.getPacmanPosition().y);
+
 
         foods = new ArrayList<>();
         pufoods = new ArrayList<>();
@@ -102,21 +122,49 @@ public class PacBoard extends JPanel{
 
 
         pufoods = md.getPufoodPositions();
-
-        ghosts = new ArrayList<>();
+    /*
+      // System.out.println("n1" +n );
         for(GhostData gd : md.getGhostsData()){
+            if (n == 1){
             switch(gd.getType()) {
                 case RED:
-                    ghosts.add(new RedGhost(gd.getX(), gd.getY(), this));
-                    break;
+                    ghosts.add(new RedGhost(gd.getX(), gd.getY(), this, 1));
+                    break;}
+
+            if (n == 2){
+            switch(gd.getType()) {
                 case PINK:
                     ghosts.add(new PinkGhost(gd.getX(), gd.getY(), this));
-                    break;
+                    break;}}
+
+            if(n == 3){
+            switch(gd.getType()) {
                 case CYAN:
                     ghosts.add(new CyanGhost(gd.getX(), gd.getY(), this));
-                    break;
+                    break;}}
+
             }
         }
+/*
+        int mx = input.indexOf('\n');
+        int my = StringHelper.countLines(input);
+        MapData customMap = new MapData(mx,my);
+        customMap.setCustom(true);
+        int i=0;
+        int j=0;
+        for(char c : input.toCharArray()){
+            if(c == '1'){
+                map[i][j] = 0;
+                customMap.getGhostsData().add(new GhostData(i,j,ghostType.RED));
+            }
+            if(c == '2'){
+                map[i][j] = 0;
+                customMap.getGhostsData().add(new GhostData(i,j,ghostType.PINK));
+            }
+            if(c == '3'){
+                map[i][j] = 0;
+                customMap.getGhostsData().add(new GhostData(i,j,ghostType.CYAN));
+            }}*/
 
         teleports = md.getTeleports();
 
@@ -161,21 +209,55 @@ public class PacBoard extends JPanel{
         siren.start();
     }
 
+    public void CrearFantasma( int n){
+       // public void CrearFantasma( ){
+        //Fantasmas
+        for(GhostData gd : md_backup.getGhostsData()){
+            if (n == 1){
+                switch(gd.getType()) {
+                    case RED:
+                        ghosts.add(new RedGhost(gd.getX(), gd.getY(), this, 1));
+
+                        break;}
+
+                if (n == 2){
+                    switch(gd.getType()) {
+                        case PINK:
+                            ghosts.add(new PinkGhost(gd.getX(), gd.getY(), this));
+                            break;}}
+
+                if(n == 3){
+                    switch(gd.getType()) {
+                        case CYAN:
+                            ghosts.add(new CyanGhost(gd.getX(), gd.getY(), this));
+                            break;}}
+
+            }
+        } n = 0;
+
+    }
+
+
+
     private void collisionTest(){
+        //pacman = new Pacman(md.getPacmanPosition().x,md.getPacmanPosition().y,this);
         Rectangle pr = new Rectangle(pacman.pixelPosition.x+13,pacman.pixelPosition.y+13,2,2);
         Ghost ghostToRemove = null;
         for(Ghost g : ghosts){
             Rectangle gr = new Rectangle(g.pixelPosition.x,g.pixelPosition.y,28,28);
-
+            //pacman.logicalPosition = new Point(3,1);
             /* Vidas*/
             if(pr.intersects(gr)){
                 if(!g.isDead()) {
                     if (!g.isWeak()) {
                         if (vids !=0) {
+                            // pacman = new Pacman(1,3,this);
+                            // pacman = new Pacman(md_backup.getPacmanPosition().x =1,md_backup.getPacmanPosition().y= 3,this);
+                            // pacman.logicalPosition.x =7;
+                            //pacman.logicalPosition.y = 3;
 
-                            pacman.pixelPosition = new Point( 28*1, 28*3);
                             pacman.logicalPosition = new Point(1, 3);
-
+                            pacman.pixelPosition = new Point( 28, 84);
 
 
 
@@ -184,7 +266,7 @@ public class PacBoard extends JPanel{
                             //pacman = new Pacman(pacman.pixelPosition.x = 1,3,this);
                             //new Pacman(md_backup.getPacmanPosition().x = 1,md_backup.getPacmanPosition().y = 1, this);
                             //addKeyListener(pacman);
-                            System.out.println("1.PAcboard");
+                          //  System.out.println("1.PAcboard");
                             //this.md_backup.getPacmanPosition().y = 1;
                             //this.md_backup.getPacmanPosition().x = 3;
 
@@ -193,8 +275,10 @@ public class PacBoard extends JPanel{
                             vidas--;
                             vids--;
                             vidasboard.setText(" perdiste una vida te quedan:" +vids);
-
-                        } else{
+                        //scoreboard.setText("    Vidas : "+vids);
+                            //  pacman.logicalPosition = new Point(3,1);
+                        }
+                        else{
                        // Game Over
                         siren.stop();
                         SoundPlayer.play("pacman_lose.wav");
@@ -206,26 +290,31 @@ public class PacBoard extends JPanel{
                         scoreboard.setForeground(Color.red);
                         break;}
 
+
                     } else {
                         //Eat Ghost
                         SoundPlayer.play("pacman_eatghost.wav");
                         //getGraphics().setFont(new Font("Arial",Font.BOLD,20));
                         drawScore = true;
                         scoreToAdd++;
+                        colisionfantasma = true;
                         if(ghostBase!=null)
                             g.die();
+
                         else
                             ghostToRemove = g;
-                        System.out.println("2.PAcboard");
+
                     }
                 }
             }
         }
+        colisionfantasma = false;
 
        // if(ghostToRemove!= null){
          //   ghosts.remove(ghostToRemove);
         //}
     }
+
 
     private void update(){
 
@@ -240,6 +329,8 @@ public class PacBoard extends JPanel{
             foods.remove(foodToEat);
             score ++;
             scoreboard.setText("    Score : "+score);
+            colisionfruta = true;
+
 
             //////////////////////////////////////////////////////// aqui suma el socre
 
@@ -253,7 +344,7 @@ public class PacBoard extends JPanel{
                     g.moveTimer.stop();
                 }
             }
-        }
+        } //colisionfruta = false;
 
         PowerUpFood puFoodToEat = null;
         //Check pu food eat
@@ -321,7 +412,31 @@ public class PacBoard extends JPanel{
 
 
     }
+/*
+    private void mensajes(){
+        switch(pacman.activeMove){
+            case NONE:
+            case RIGHT:
+                if (colisionfruta == true){
+                    System.out.println("fruta" +colisionfrut);
+                }if(colisionfantasma == true){
+                    System.out.println("fantasma" +colisionfantasm);
+            }else{
+                    System.out.println("{}");
+            }
 
+                break;
+            case LEFT:
+
+                break;
+            case DOWN:
+
+                break;
+            case UP:
+
+                break;
+        }
+    } */
 
     @Override
     public void paintComponent(Graphics g){
@@ -339,7 +454,7 @@ public class PacBoard extends JPanel{
         }
         if(clearVida){
             try {
-                Thread.sleep(100);
+                sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -395,7 +510,7 @@ public class PacBoard extends JPanel{
 
         if(clearScore){
             try {
-                Thread.sleep(1000);
+                sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -435,15 +550,83 @@ public class PacBoard extends JPanel{
 
         if(ae.getID()==Messeges.UPDATE) {
             update();
-        }else if(ae.getID()==Messeges.COLTEST) {
+            BufferedReader reader =
+                    new BufferedReader(new InputStreamReader(System.in));
+
+                    // Reading data using readLine
+                    String name = null;
+                    try {
+                        name = reader.readLine();
+                        //if(Servermessage.equals("w")){
+                            CrearFantasma( Integer.parseInt(name));
+                        //}
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+            // Printing the read line
+            System.out.println(name);
+            //object.start();}
+
+
+        } else if(ae.getID()==Messeges.GHOST) {
+            /*BufferedReader reader =
+                    new BufferedReader(new InputStreamReader(System.in));
+
+            // Reading data using readLine
+            String name = null;
+            try {
+                name = reader.readLine();
+                CrearFantasma( Integer.parseInt(name));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            // Printing the read line
+            System.out.println(name);
+            /*if (n != 0) {
+                CrearFantasma(1, 1);
+            }
+            for (int z = 0; z < n; z++) {
+                Multithreading object = new Multithreading();
+                CrearFantasma(1, 1);
+            }
+            //object.start();}
+
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            /*int n = 50;
+            for (int z = 0; z<n; z++){
+                //Multithreading object = new Multithreading();
+                CrearFantasma(1, 1);}
+            //object.start();}
+            /*
+            try {
+                sleep(4000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }*/
+            //  CrearFantasma();}
+
+        }
+
+        else if(ae.getID()==Messeges.COLTEST) {
             if (!isGameOver) {
                 collisionTest();
+
+              //  CrearFantasma();
+            //   mensajes();
             }
         }else if(ae.getID()==Messeges.RESET){
             if(isGameOver)
                 restart();
         }else {
             super.processEvent(ae);
+
         }
     }
     
@@ -453,6 +636,7 @@ public class PacBoard extends JPanel{
 
         new PacWindow();
         windowParent.dispose();
+
 
         /*
         removeKeyListener(pacman);

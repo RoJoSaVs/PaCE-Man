@@ -8,8 +8,8 @@ public class RedGhost extends Ghost {
 
     BFSFinder bfs;
 
-    public RedGhost(int x, int y,PacBoard pb){
-        super(x,y,pb,12);
+    public RedGhost(int x, int y,PacBoard pb, int ghostDelay ){
+        super(x,y,pb,ghostDelay);
     }
 
     @Override

@@ -192,7 +192,7 @@ public abstract class Ghost {
                 parentBoard.dispatchEvent(new ActionEvent(this,Messeges.COLTEST,null));
             }
         };
-        moveTimer = new Timer(ghostDelay,moveAL);
+        moveTimer = new Timer(ghostDelay,moveAL); //Velocidad del movimiento
         moveTimer.start();
 
         unweak1 = new ActionListener() {
