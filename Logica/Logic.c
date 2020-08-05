@@ -1,6 +1,7 @@
 #include <string.h>
 #include "Logic.h"
 #include "../sockets/server/Server.h"
+#include "constantes.h"
 
 //gcc Logic.c ../sockets/server/Server.c -o Logic -lws2_32
 
@@ -9,7 +10,7 @@
  * fantasmas cuando el usuario lo desea
  * @param ptr -> Contiene la instruccion hecha por el usuario
  */ 
-void createFunction(char *ptr){
+void createFunction(char *ptr, struct constantes constantes){
     char totalData[64];
     if (strcmp(ptr, "G") == 0){
         ptr = strtok(NULL, " ");
@@ -89,7 +90,7 @@ void createFunction(char *ptr){
 
     char *message_to_client=totalData;
     //char message_to_client[]="hola desde el server, desde el archivo call_Server";
-    printf("\n mensaje del cliente: %s", send_to_client(message_to_client,512));
+    printf("\n mensaje del cliente: %s", send_to_client(message_to_client,512,constantes.DEFAULT_BUFLEN,constantes.DEFAULT_PORT,constantes.error_size));
 }
 
 
@@ -152,7 +153,7 @@ void setSpeedFunction(char *ptr){
  * Funcion principal que se encarga de estar leyendo la entrada de 
  * comandos en la consola
 */
-void readLine(){
+void readLine(struct constantes constantes){
     int init_size;
     char *ptr;
 
@@ -163,7 +164,7 @@ void readLine(){
         ptr = strtok(word, " ");
         if (strcmp(ptr, "create") == 0){
             ptr = strtok(NULL, " ");
-            createFunction(ptr);
+            createFunction(ptr,constantes);
         }
 
         else if (strcmp(ptr, "setSpeed") == 0){
@@ -186,7 +187,9 @@ void readLine(){
 
     
 int main(){
-    readLine();
+    struct constantes constantes = {512,"8080",10};
+    
+    readLine(constantes);
     // int xData = 10;
     // int yData = 15;
     // int zData = 1;

@@ -21,10 +21,7 @@
 #pragma comment (lib, "Ws2_32.lib")
 // #pragma comment (lib, "Mswsock.lib")
 
-#define DEFAULT_BUFLEN 512
-#define DEFAULT_PORT "8080"
-
-char* send_to_client(char* message_to_client,int size_of_message)
+char* send_to_client(char* message_to_client,int size_of_message,int DEFAULT_BUFLEN, const char* DEFAULT_PORT,int error_size)
 {
     
     WSADATA wsaData;
@@ -44,7 +41,7 @@ char* send_to_client(char* message_to_client,int size_of_message)
 
     char respuesta[size_of_message];
 
-    char *error= malloc(10);
+    char *error= malloc(error_size);
     strcpy(error,"error");
 
     char *desde_cliente= malloc(DEFAULT_BUFLEN);
