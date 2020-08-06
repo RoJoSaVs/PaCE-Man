@@ -550,16 +550,19 @@ public class PacBoard extends Client  {
             update();
             
             Client client=new Client();
-            String Servermessage = "w";
+            String Servermessage = "esperando_instrucciones";
             try {
                 Servermessage = client.send_to_server("mensaje de prueba para el servidor");
             } catch (Exception e) {
                 e.printStackTrace();
             }
             // client=null;
-            if(!Servermessage.equals("w")){
+            if(!Servermessage.equals("esperando_instrucciones")){
                 CrearFantasma(1,1);
             }
+            System.out.println("Pene:"+Servermessage);
+            String prueba = Servermessage.substring(0,5);
+            System.out.println("substring:" +prueba+"\n");
 
         } else if(ae.getID()==Messeges.GHOST) {
             /*BufferedReader reader =
