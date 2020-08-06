@@ -4,14 +4,13 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include "Characters/PowerUps/PowerUps.h"
-#include "Characters/PowerUps/PowerUps.c"
 #include "Characters/Ghost/Ghost.h"
-#include "Characters/Ghost/Ghost.c"
+#include "Characters/PaCEman/PaCEman.h"
 
 
 
 
-
+struct PaCEman paceman;
 struct PowerUps powerUp;
 struct Ghost ghost;
 char word[10];

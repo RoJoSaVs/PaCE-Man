@@ -4,6 +4,41 @@
 #include "constantes.h"
 
 //gcc Logic.c ../sockets/server/Server.c -o Logic -lws2_32
+void parseSocketMessage(char *ptr){
+
+    if (strcmp(ptr, "G") == 0){
+        ptr = strtok(NULL, " ");
+        
+        if (strcmp(ptr, "B") == 0){
+            printf("Blinky\n");
+        }
+
+        else if (strcmp(ptr, "I") == 0){
+            printf("Inky\n");
+        }
+
+        else if (strcmp(ptr, "C") == 0){
+            printf("Clyde\n");
+        }
+
+        else if (strcmp(ptr, "P") == 0){
+            printf("Pinky\n");
+        }
+    }
+
+    else if(strcmp(ptr, "P") == 0){
+        int points;
+        ptr = strtok(NULL, " ");
+        points = atoi(ptr);
+        paceman = pointsVerifier(paceman, points);
+        printf("%d", points);
+        printf(" Puntos\n");
+    }
+
+    else{
+        printf("Error!!\n");
+    }
+}
 
 /**
  * Crea un powerUp o una fruta para PaCEman y genera los 
