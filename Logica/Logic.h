@@ -4,8 +4,13 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include "Characters/PowerUps/PowerUps.h"
+#include "Characters/PowerUps/PowerUps.c"
+
 #include "Characters/Ghost/Ghost.h"
+#include "Characters/Ghost/Ghost.c"
 #include "Characters/PaCEman/PaCEman.h"
+#include "Characters/PaCEman/PaCEman.c"
+
 
 
 
@@ -48,5 +53,8 @@ int boardGame[31][28] = {
     {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}, 
     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
 
+void parseSocketMessage(char *ptr);
+// void createFunction(char *ptr, struct constantes constantes);
+void setSpeedFunction(char *ptr);
 void readLine();
 #endif //LOGIC_SERVER_H
