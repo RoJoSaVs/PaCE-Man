@@ -151,18 +151,12 @@ public abstract class Ghost {
                     activeMove = getMoveAI();
                     isStuck = true;
 
-                    //animTimer.stop();
-                    //System.out.println("LOGICAL POS :" + logicalPosition.x + " , " + logicalPosition.y);
-                    //if(todoMove != moveType.NONE) {
-                    //    activeMove = todoMove;
-                    //    todoMove = moveType.NONE;
-                    //}
+
                 }else{
                     isStuck = false;
-                    //animTimer.start();
+
                 }
-                // }
-                //TODO : fix ghost movements
+
                 switch(activeMove){
                     case RIGHT:
                         if(pixelPosition.x >= (parentBoard.m_x-1) * 28){
@@ -335,10 +329,10 @@ public abstract class Ghost {
     }
 
     public void undie(){
-        //Shift Left Or Right
+
         int r = ThreadLocalRandom.current().nextInt(3);
         if (r == 0) {
-            //Do nothing
+
         }
         if(r==1){
             logicalPosition.x += 1;

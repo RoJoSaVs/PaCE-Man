@@ -76,11 +76,6 @@ public class PacBoard extends Client  {
     MapData md_backup;
     PacWindow windowParent;
 
-   // public void dato (int m ,int n){
-     //   this.m = m;
-       // this.n = n;
-
-    //}
 
     public PacBoard(JLabel scoreboard, JLabel vidasboard,MapData md,PacWindow pw){
         this.scoreboard = scoreboard;
@@ -124,49 +119,7 @@ public class PacBoard extends Client  {
 
 
         pufoods = md.getPufoodPositions();
-    /*
-      // System.out.println("n1" +n );
-        for(GhostData gd : md.getGhostsData()){
-            if (n == 1){
-            switch(gd.getType()) {
-                case RED:
-                    ghosts.add(new RedGhost(gd.getX(), gd.getY(), this, 1));
-                    break;}
 
-            if (n == 2){
-            switch(gd.getType()) {
-                case PINK:
-                    ghosts.add(new PinkGhost(gd.getX(), gd.getY(), this));
-                    break;}}
-
-            if(n == 3){
-            switch(gd.getType()) {
-                case CYAN:
-                    ghosts.add(new CyanGhost(gd.getX(), gd.getY(), this));
-                    break;}}
-
-            }
-        }
-/*
-        int mx = input.indexOf('\n');
-        int my = StringHelper.countLines(input);
-        MapData customMap = new MapData(mx,my);
-        customMap.setCustom(true);
-        int i=0;
-        int j=0;
-        for(char c : input.toCharArray()){
-            if(c == '1'){
-                map[i][j] = 0;
-                customMap.getGhostsData().add(new GhostData(i,j,ghostType.RED));
-            }
-            if(c == '2'){
-                map[i][j] = 0;
-                customMap.getGhostsData().add(new GhostData(i,j,ghostType.PINK));
-            }
-            if(c == '3'){
-                map[i][j] = 0;
-                customMap.getGhostsData().add(new GhostData(i,j,ghostType.CYAN));
-            }}*/
 
         teleports = md.getTeleports();
 
@@ -183,11 +136,7 @@ public class PacBoard extends Client  {
         }
 
         pfoodImage = new Image[5];
-        /*for(int ms=1 ;ms<5;ms++){
-            try {
-                pfoodImage[ms] = ImageIO.read(this.getClass().getResource("resources/images/food/"+ms+".png"));
-            }catch(Exception e){}
-        }*/
+
         try{
             foodImage = ImageIO.read(this.getClass().getResource("resources/images/food.png"));
             goImage = ImageIO.read(this.getClass().getResource("resources/images/gameover.png"));
@@ -198,14 +147,14 @@ public class PacBoard extends Client  {
 
         redrawAL = new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                //Draw Board
+                //Dibuja
                 repaint();
             }
         };
         redrawTimer = new Timer(16,redrawAL);
         redrawTimer .start();
 
-        //SoundPlayer.play("pacman_start.wav");
+        //Sonidos
         siren = new LoopPlayer("siren.wav");
         pac6 = new LoopPlayer("pac6.wav");
         siren.start();
@@ -218,7 +167,7 @@ public class PacBoard extends Client  {
      * @param m
      */
     public void CrearFantasma( int n, int m){
-       // public void CrearFantasma( ){
+
         //Fantasmas
         for(GhostData gd : md_backup.getGhostsData()){
             if (n == 1){
@@ -287,41 +236,25 @@ public class PacBoard extends Client  {
         Ghost ghostToRemove = null;
         for(Ghost g : ghosts){
             Rectangle gr = new Rectangle(g.pixelPosition.x,g.pixelPosition.y,28,28);
-            //pacman.logicalPosition = new Point(3,1);
-            /* Vidas*/
+
             if(pr.intersects(gr)){
                 if(!g.isDead()) {
                     if (!g.isWeak()) {
                         if (vids !=0) {
-                            // pacman = new Pacman(1,3,this);
-                            // pacman = new Pacman(md_backup.getPacmanPosition().x =1,md_backup.getPacmanPosition().y= 3,this);
-                            // pacman.logicalPosition.x =7;
-                            //pacman.logicalPosition.y = 3;
 
                             pacman.logicalPosition = new Point(1, 3);
                             pacman.pixelPosition = new Point( 28, 84);
 
-
-
-                            //pacman = (md_backup.getPacmanPosition().y = 25; md_backup.getPacmanPosition().x = 4);
-                            //pacman = new Pacman(md.getPacmanPosition().x,md.getPacmanPosition().y,this);
-                            //pacman = new Pacman(pacman.pixelPosition.x = 1,3,this);
-                            //new Pacman(md_backup.getPacmanPosition().x = 1,md_backup.getPacmanPosition().y = 1, this);
-                            //addKeyListener(pacman);
-                          //  System.out.println("1.PAcboard");
-                            //this.md_backup.getPacmanPosition().y = 1;
-                            //this.md_backup.getPacmanPosition().x = 3;
 
                             drawVida = true;
                             vidaToAdd--;
                             vidas--;
                             vids--;
                             vidasboard.setText(" perdiste una vida te quedan:" +vids);
-                        //scoreboard.setText("    Vidas : "+vids);
-                            //  pacman.logicalPosition = new Point(3,1);
+
                         }
                         else{
-                       // Game Over
+                       // PErdiste
                         siren.stop();
                         SoundPlayer.play("pacman_lose.wav");
                         pacman.moveTimer.stop();
@@ -334,7 +267,7 @@ public class PacBoard extends Client  {
 
 
                     } else {
-                        //Eat Ghost
+                        //Come un fantasma
                         SoundPlayer.play("pacman_eatghost.wav");
                         //getGraphics().setFont(new Font("Arial",Font.BOLD,20));
                         drawScore = true;
@@ -352,9 +285,6 @@ public class PacBoard extends Client  {
         }
         colisionfantasma = false;
 
-       // if(ghostToRemove!= null){
-         //   ghosts.remove(ghostToRemove);
-        //}
     }
 
     /**
@@ -378,7 +308,7 @@ public class PacBoard extends Client  {
             colisionfruta = true;
 
 
-            //////////////////////////////////////////////////////// aqui suma el socre
+            //aqui suma el socre
 
             if(foods.size() == 0){
                 siren.stop();
@@ -390,7 +320,7 @@ public class PacBoard extends Client  {
                     g.moveTimer.stop();
                 }
             }
-        } //colisionfruta = false;
+        }
 
         PowerUpFood puFoodToEat = null;
         //Check pu food eat
@@ -399,7 +329,7 @@ public class PacBoard extends Client  {
                 puFoodToEat = puf;
         }
         if(puFoodToEat!=null) {
-            //SoundPlayer.play("pacman_eat.wav");
+            //Sonido
             switch(puFoodToEat.type) {
                 case 0:
                     //PACMAN 6
@@ -418,21 +348,20 @@ public class PacBoard extends Client  {
                     scoreToAdd = 1;
                     drawScore = true;
             }
-            //score ++;
-            //scoreboard.setText("    Score : "+score);
+
         }
 
-        //Check Ghost Undie
+        //Fantasma muere
         for(Ghost g:ghosts){
             if(g.isDead() && g.logicalPosition.x == ghostBase.x && g.logicalPosition.y == ghostBase.y){
                 g.undie();
             }
         }
 
-        //Check Teleport
+        //revisa
         for(TeleportTunnel tp : teleports) {
             if (pacman.logicalPosition.x == tp.getFrom().x && pacman.logicalPosition.y == tp.getFrom().y && pacman.activeMove == tp.getReqMove()) {
-                //System.out.println("TELE !");
+                //System.out.println("TELE");
                 pacman.logicalPosition = tp.getTo();
                 pacman.pixelPosition.x = pacman.logicalPosition.x * 28;
                 pacman.pixelPosition.y = pacman.logicalPosition.y * 28;
@@ -458,31 +387,7 @@ public class PacBoard extends Client  {
 
 
     }
-/*
-    private void mensajes(){
-        switch(pacman.activeMove){
-            case NONE:
-            case RIGHT:
-                if (colisionfruta == true){
-                    System.out.println("fruta" +colisionfrut);
-                }if(colisionfantasma == true){
-                    System.out.println("fantasma" +colisionfantasm);
-            }else{
-                    System.out.println("{}");
-            }
 
-                break;
-            case LEFT:
-
-                break;
-            case DOWN:
-
-                break;
-            case UP:
-
-                break;
-        }
-    } */
 
     /**
      * metodo PaintComponent
@@ -493,7 +398,7 @@ public class PacBoard extends Client  {
     public void paintComponent(Graphics g){
         super.paintComponent(g);
 
-        // draw Vidas
+        // dibuja Vidas
         if(drawVida) {
             g.setFont(new Font("Arial",Font.LAYOUT_RIGHT_TO_LEFT,15));
             g.setColor(Color.red);
@@ -616,7 +521,7 @@ public class PacBoard extends Client  {
             }
             // client=null;
 
-            System.out.println("Pene:"+Servermessage);
+            System.out.println("MensajedelServer:"+Servermessage);
             String Valores_Server = Servermessage.substring(0,5);
             System.out.println("Valores_Server:" + Valores_Server +"\n");
 
@@ -645,56 +550,11 @@ public class PacBoard extends Client  {
                 }
             }
 
-        } else if(ae.getID()==Messeges.GHOST) {
-            /*BufferedReader reader =
-                    new BufferedReader(new InputStreamReader(System.in));
-
-            // Reading data using readLine
-            String name = null;
-            try {
-                name = reader.readLine();
-                CrearFantasma( Integer.parseInt(name));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            // Printing the read line
-            System.out.println(name);
-            /*if (n != 0) {
-                CrearFantasma(1, 1);
-            }
-            for (int z = 0; z < n; z++) {
-                Multithreading object = new Multithreading();
-                CrearFantasma(1, 1);
-            }
-            //object.start();}
-
-            try {
-                Thread.sleep(10000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            /*int n = 50;
-            for (int z = 0; z<n; z++){
-                //Multithreading object = new Multithreading();
-                CrearFantasma(1, 1);}
-            //object.start();}
-            /*
-            try {
-                sleep(4000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }*/
-            //  CrearFantasma();}
-
-        }
-
-        else if(ae.getID()==Messeges.COLTEST) {
+        } else if(ae.getID()==Messeges.COLTEST) {
             if (!isGameOver) {
                 collisionTest();
 
-              //  CrearFantasma();
-            //   mensajes();
+
             }
         }else if(ae.getID()==Messeges.RESET){
             if(isGameOver)
@@ -713,53 +573,6 @@ public class PacBoard extends Client  {
         windowParent.dispose();
 
 
-        /*
-        removeKeyListener(pacman);
-
-        isGameOver = false;
-
-        pacman = new Pacman(md_backup.getPacmanPosition().x,md_backup.getPacmanPosition().y,this);
-        addKeyListener(pacman);
-
-        foods = new ArrayList<>();
-        pufoods = new ArrayList<>();
-        ghosts = new ArrayList<>();
-        teleports = new ArrayList<>();
-
-        //TODO : read food from mapData (Map 1)
-
-        if(!isCustom) {
-            for (int i = 0; i < m_x; i++) {
-                for (int j = 0; j < m_y; j++) {
-                    if (map[i][j] == 0)
-                        foods.add(new Food(i, j));
-                }
-            }
-        }else{
-            foods = md_backup.getFoodPositions();
-        }
-
-
-
-        pufoods = md_backup.getPufoodPositions();
-
-        ghosts = new ArrayList<>();
-        for(GhostData gd : md_backup.getGhostsData()){
-            switch(gd.getType()) {
-                case RED:
-                    ghosts.add(new RedGhost(gd.getX(), gd.getY(), this));
-                    break;
-                case PINK:
-                    ghosts.add(new PinkGhost(gd.getX(), gd.getY(), this));
-                    break;
-                case CYAN:
-                    ghosts.add(new CyanGhost(gd.getX(), gd.getY(), this));
-                    break;
-            }
-        }
-
-        teleports = md_backup.getTeleports();
-        */
     }
 
 

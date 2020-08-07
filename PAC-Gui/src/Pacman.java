@@ -117,9 +117,7 @@ public class Pacman implements KeyListener{
                         if((pixelPosition.x >= (parentBoard.m_x-1) * 28)&&parentBoard.isCustom){
                             return;
                         }
-                        /*if((logicalPosition.x+1 < parentBoard.m_x) && (parentBoard.map[logicalPosition.x+1][logicalPosition.y]>0)){
-                            return;
-                        }*/
+
                         if(logicalPosition.x >= 0 && logicalPosition.x < parentBoard.m_x-1 && logicalPosition.y >= 0 && logicalPosition.y < parentBoard.m_y-1 ) {
                             if (parentBoard.map[logicalPosition.x + 1][logicalPosition.y] > 0) {
                                 return;
@@ -131,9 +129,7 @@ public class Pacman implements KeyListener{
                         if((pixelPosition.x <= 0)&&parentBoard.isCustom){
                             return;
                         }
-                        /*if((logicalPosition.x-1 >= 0) && (parentBoard.map[logicalPosition.x-1][logicalPosition.y]>0)){
-                            return;
-                        }*/
+
                         if(logicalPosition.x > 0 && logicalPosition.x < parentBoard.m_x-1 && logicalPosition.y >= 0 && logicalPosition.y < parentBoard.m_y-1 ) {
                             if (parentBoard.map[logicalPosition.x - 1][logicalPosition.y] > 0) {
                                 return;
@@ -159,9 +155,7 @@ public class Pacman implements KeyListener{
                         if((pixelPosition.y >= (parentBoard.m_y-1) * 28)&&parentBoard.isCustom){
                             return;
                         }
-                        /*if((logicalPosition.y+1 < parentBoard.m_y) && (parentBoard.map[logicalPosition.x][logicalPosition.y+1]>0)){
-                            return;
-                        }*/
+
                         if(logicalPosition.x >= 0 && logicalPosition.x < parentBoard.m_x-1 && logicalPosition.y >= 0 && logicalPosition.y < parentBoard.m_y-1 ) {
                             if(parentBoard.map[logicalPosition.x][logicalPosition.y+1]>0){
                                 return;
