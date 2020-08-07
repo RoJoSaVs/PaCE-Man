@@ -221,18 +221,18 @@ public class PacBoard extends Client  {
                 if (n == 2){
                     switch(gd.getType()) {
                         case PINK:
-                            ghosts.add(new PinkGhost(gd.getX(), gd.getY(), this));
+                            ghosts.add(new PinkGhost(gd.getX(), gd.getY(), this, m));
                             break;}}
 
                 if(n == 3){
                     switch(gd.getType()) {
                         case CYAN:
-                            ghosts.add(new CyanGhost(gd.getX(), gd.getY(), this));
+                            ghosts.add(new CyanGhost(gd.getX(), gd.getY(), this, m));
                             break;}}
                 if(n == 4){
                     switch(gd.getType()) {
                         case CYAN:
-                            ghosts.add(new Orangeghost(gd.getX(), gd.getY(), this));
+                            ghosts.add(new Orangeghost(gd.getX(), gd.getY(), this, m));
                             break;}}
 
             }
@@ -573,7 +573,7 @@ public class PacBoard extends Client  {
             Client client=new Client();
             String Servermessage = "1234567890123456789";
             try {
-                Servermessage = client.send_to_server("str1");
+                Servermessage = client.send_to_server(str1);
             } catch (Exception e) {
                 e.printStackTrace();
             }
