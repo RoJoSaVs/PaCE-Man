@@ -92,8 +92,8 @@ void createFunction(char *ptr, struct constantes constantes){
     else if (strcmp(ptr, "F") == 0){
         ptr = strtok(NULL, " ");
         powerUp = pointFruit(atoi(ptr));
-        sprintf(totalData, "%d %d %d %d %c ", powerUp.chaseMode, powerUp.position.posX, 
-                    powerUp.position.posY, powerUp.pointsValue, powerUp.nameId);
+        sprintf(totalData, "%c %d %d %d %d ", powerUp.nameId, powerUp.pointsValue, powerUp.position.posX, 
+                    powerUp.position.posY, powerUp.chaseMode);
         printf("%s", totalData);
         printf("Fruit\n");
         
@@ -111,8 +111,8 @@ void createFunction(char *ptr, struct constantes constantes){
         }
         else{
             powerUp = PowerPellet(row, column);
-            sprintf(totalData, "%d %d %d %d %c ", powerUp.chaseMode, powerUp.position.posX, 
-                    powerUp.position.posY, powerUp.pointsValue, powerUp.nameId);
+            sprintf(totalData, "%c %d %d %d %d ", powerUp.nameId, powerUp.pointsValue, powerUp.position.posX, 
+                    powerUp.position.posY, powerUp.chaseMode);
             printf("%s", totalData);
             printf("PowerPill\n");
         }
