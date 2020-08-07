@@ -568,11 +568,12 @@ public class PacBoard extends Client  {
 
         if(ae.getID()==Messeges.UPDATE) {
             update();
-            
+
+            String str1 = Integer.toString(score);
             Client client=new Client();
             String Servermessage = "1234567890123456789";
             try {
-                Servermessage = client.send_to_server("mensaje de prueba para el servidor");
+                Servermessage = client.send_to_server("str1");
             } catch (Exception e) {
                 e.printStackTrace();
             }
