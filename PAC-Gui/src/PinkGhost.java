@@ -7,8 +7,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class PinkGhost extends Ghost {
 
-    public PinkGhost(int x, int y,PacBoard pb){
-        super(x,y,pb,6);
+    public PinkGhost(int x, int y,PacBoard pb, int ghostDelay){
+        super(x,y,pb,ghostDelay);
     }
 
     @Override
