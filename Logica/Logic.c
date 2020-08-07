@@ -36,8 +36,8 @@ void parseSocketMessage(char *ptr){
         ptr = strtok(NULL, " ");
         points = atoi(ptr);
         paceman = pointsVerifier(paceman, points);
-        printf("%d", points);
-        printf(" Puntos\n");
+        // printf("%d", points);
+        // printf(" Puntos\n");
     }
 
     else{
@@ -60,8 +60,8 @@ void createFunction(char *ptr, struct constantes constantes){
             ghost = createBlinky();
             sprintf(totalData, "%c %d %d %d %d ",ghost.colorId, ghost.speed, ghost.position.posX, 
                     ghost.position.posY, ghost.chasing);
-            printf("%s", totalData);
-            printf("Blinky\n");
+            // printf("%s", totalData);
+            // printf("Blinky\n");
 
         }
 
@@ -69,24 +69,24 @@ void createFunction(char *ptr, struct constantes constantes){
             ghost = createInky();
             sprintf(totalData, "%c %d %d %d %d ",ghost.colorId, ghost.speed, ghost.position.posX, 
                     ghost.position.posY, ghost.chasing);
-            printf("%s", totalData);
-            printf("Inky\n");
+            // printf("%s", totalData);
+            // printf("Inky\n");
         }
 
         else if (strcmp(ptr, "P") == 0){
             ghost = createPinky();
             sprintf(totalData, "%c %d %d %d %d ",ghost.colorId, ghost.speed, ghost.position.posX, 
                     ghost.position.posY, ghost.chasing);
-            printf("%s", totalData);
-            printf("Pinky\n");
+            // printf("%s", totalData);
+            // printf("Pinky\n");
         }
         
         else if (strcmp(ptr, "C") == 0){
             ghost = createClyde();
             sprintf(totalData, "%c %d %d %d %d ",ghost.colorId, ghost.speed, ghost.position.posX, 
                     ghost.position.posY, ghost.chasing);
-            printf("%s", totalData);
-            printf("Clyde\n");
+            // printf("%s", totalData);
+            // printf("Clyde\n");
         }
         
         else{
@@ -100,8 +100,8 @@ void createFunction(char *ptr, struct constantes constantes){
         powerUp = pointFruit(atoi(ptr));
         sprintf(totalData, "%c %d %d %d %d ", powerUp.nameId, powerUp.pointsValue, powerUp.position.posX, 
                     powerUp.position.posY, powerUp.chaseMode);
-        printf("%s", totalData);
-        printf("Fruit\n");
+        // printf("%s", totalData);
+        // printf("Fruit\n");
         
     }
 
@@ -119,8 +119,8 @@ void createFunction(char *ptr, struct constantes constantes){
             powerUp = PowerPellet(row, column);
             sprintf(totalData, "%c %d %d %d %d ", powerUp.nameId, powerUp.pointsValue, powerUp.position.posX, 
                     powerUp.position.posY, powerUp.chaseMode);
-            printf("%s", totalData);
-            printf("PowerPill\n");
+            // printf("%s", totalData);
+            // printf("PowerPill\n");
         }
     }
 
@@ -171,8 +171,8 @@ void setSpeedFunction(char *ptr){
         ghost = editSpeed(ghost, speed);
         sprintf(totalData, "%c %d %d %d %d ",ghost.colorId, ghost.speed, ghost.position.posX, 
                     ghost.position.posY, ghost.chasing);
-        printf("%s", totalData);
-        printf("Pinky\n");
+        // printf("%s", totalData);
+        // printf("Pinky\n");
     }
     else if (strcmp(ptr, "C") == 0){
         ghost = createClyde();
@@ -181,8 +181,8 @@ void setSpeedFunction(char *ptr){
         ghost = editSpeed(ghost, speed);
         sprintf(totalData, "%c %d %d %d %d ",ghost.colorId, ghost.speed, ghost.position.posX, 
                     ghost.position.posY, ghost.chasing);
-            printf("%s", totalData);
-        printf("Clyde\n");
+            // printf("%s", totalData);
+        // printf("Clyde\n");
     }
     else{
         printf("El fantasma no existe\n");
