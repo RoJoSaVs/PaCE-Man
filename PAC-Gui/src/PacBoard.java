@@ -190,7 +190,7 @@ public class PacBoard extends Client  {
                             break;}}
                 if(n == 4){
                     switch(gd.getType()) {
-                        case CYAN:
+                        case ORANGE:
                             ghosts.add(new Orangeghost(gd.getX(), gd.getY(), this, m));
                             break;}}
 
@@ -528,18 +528,18 @@ public class PacBoard extends Client  {
             String Fantasma = Valores_Server.substring(0,1);
             System.out.println("Fantasma:" + Fantasma +"\n");
 
-            String Velocidad = Valores_Server.substring(2,4);
+            String Velocidad = Valores_Server.substring(2,3);
             System.out.println("Velocidad:" + Velocidad +"\n");
             int velo = Integer.parseInt(Velocidad);
 
             if(!Servermessage.equals("1234567890123456789")){
-                if(Fantasma.equals("B")){
+                if(Fantasma.equals("R")){
                     CrearFantasma(1,velo);
-                }else if(Fantasma.equals("P")){
+                }else if(Fantasma.equals("Q")){
                     CrearFantasma(2,velo);
-                }else if(Fantasma.equals("C")){
+                }else if(Fantasma.equals("B")){
                     CrearFantasma(3,velo);
-                }else if(Fantasma.equals("I")){
+                }else if(Fantasma.equals("O")){
                     CrearFantasma(4,velo);
                 }
                 else if(Fantasma.equals("P")){
