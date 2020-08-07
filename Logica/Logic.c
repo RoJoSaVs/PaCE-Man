@@ -44,6 +44,7 @@ void parseSocketMessage(char *ptr){
  * Crea un powerUp o una fruta para PaCEman y genera los 
  * fantasmas cuando el usuario lo desea
  * @param ptr -> Contiene la instruccion hecha por el usuario
+ * @param constantes-> struct que contiene las constantes del código
  */ 
 void createFunction(char *ptr, struct constantes constantes){
     char totalData[64];
@@ -187,6 +188,7 @@ void setSpeedFunction(char *ptr){
 /**
  * Funcion principal que se encarga de estar leyendo la entrada de 
  * comandos en la consola
+ * @param constantes-> struct que contiene las constantes del código
 */
 void readLine(struct constantes constantes){
     int init_size;
