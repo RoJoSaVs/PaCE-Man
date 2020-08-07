@@ -175,7 +175,7 @@ public class PacBoard extends Client  {
                     case RED:
                         ghosts.add(new RedGhost(gd.getX(), gd.getY(), this, m));
 
-                        break;}
+                        break;}}
 
                 if (n == 2){
                     switch(gd.getType()) {
@@ -194,7 +194,7 @@ public class PacBoard extends Client  {
                             ghosts.add(new Orangeghost(gd.getX(), gd.getY(), this, m));
                             break;}}
 
-            }
+
         } n = 0;
 
     }
