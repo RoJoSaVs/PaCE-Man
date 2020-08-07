@@ -243,6 +243,13 @@ public class PacBoard extends Client  {
         }
     }
 
+    public void CrearFruit(){
+        for(int ms=1 ;ms<5;ms++){
+            try {
+                pfoodImage[ms] = ImageIO.read(this.getClass().getResource("resources/images/food/"+ms+".png"));
+            }catch(Exception e){}
+        }
+    }
 
 
     private void collisionTest(){
@@ -586,6 +593,9 @@ public class PacBoard extends Client  {
                     CrearFantasma(3,velo);
                 }else if(Fantasma.equal("4")){
                     CrearPowerUp();
+                }
+                else if(Fantasma.equal("5")){
+                    CrearFruit();
                 }
             }
 
