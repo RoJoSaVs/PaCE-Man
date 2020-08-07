@@ -9,10 +9,13 @@ public class StartWindow extends JFrame {
 
     public StartWindow(){
         setSize(600,300);
+
         getContentPane().setBackground(Color.black);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
+        ImageIcon ImageIcon = new ImageIcon(getClass().getResource("/resources/images/pac/pac1.png"));
+        Image Image = ImageIcon.getImage();
+        this.setIconImage(Image);
         ImageIcon logo = new ImageIcon();
         try {
             logo = new ImageIcon(ImageIO.read(this.getClass().getResource("/resources/images/pacman_logo.png")));
