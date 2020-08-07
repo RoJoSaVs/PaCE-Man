@@ -49,7 +49,7 @@ public class StartWindow extends JFrame {
                 dispose();
             }
         });
-        
+
 
         buttonsC.add(startButton);
 

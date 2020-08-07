@@ -229,6 +229,11 @@ public class PacBoard extends Client  {
                         case CYAN:
                             ghosts.add(new CyanGhost(gd.getX(), gd.getY(), this));
                             break;}}
+                if(n == 4){
+                    switch(gd.getType()) {
+                        case CYAN:
+                            ghosts.add(new OrangeGhost(gd.getX(), gd.getY(), this));
+                            break;}}
 
             }
         } n = 0;
