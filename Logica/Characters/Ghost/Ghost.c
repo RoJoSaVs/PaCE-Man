@@ -20,7 +20,7 @@ struct Ghost createInky(){
  * Crea el struct que define a Pinky
 */
 struct Ghost createPinky(){
-    struct Ghost Pinky = { {.posX = 6, .posY = 8,}, true, 5, 'P' };
+    struct Ghost Pinky = { {.posX = 6, .posY = 8,}, true, 5, 'Q' };
     return Pinky;
 }
 /**
