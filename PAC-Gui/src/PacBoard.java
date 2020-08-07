@@ -515,7 +515,7 @@ public class PacBoard extends Client  {
             Client client=new Client();
             String Servermessage = "1234567890123456789";
             try {
-                Servermessage = client.send_to_server("str1");
+                Servermessage = client.send_to_server(str1);
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -1,13 +1,21 @@
 import java.awt.*;
 import java.util.*;
 
-//Finds Path Between two Maze Points Using Breadth-Frist Search (BFS)
+/**
+ * Clase BFSFinder
+ * Recibira una posicion en X y Y y un mapa en el  ual se trabaja
+ */
+
 public class BFSFinder {
 
     int[][] map;
     int mx;
     int my;
-
+    /**
+     * Busc en el mapa la posicion del Pac-Man y crea el camino mas cercano para que el fantasma lo encuentre
+     * @return camino hacia el Pac-Man
+     * @param pb
+     */
     public BFSFinder(PacBoard pb){
         this.mx = pb.m_x;
         this.my = pb.m_y;
@@ -52,7 +60,7 @@ public class BFSFinder {
             return moveType.NONE;
         }
 
-        //System.out.println("FINDING PATH FROM : " + x + "," + y + " TO " + tx + "," + ty);
+
 
         MazeCell[][] mazeCellTable = new MazeCell[mx][my];
         Point[][] parentTable = new Point[mx][my];
