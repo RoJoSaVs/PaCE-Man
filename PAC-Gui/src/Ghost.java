@@ -7,7 +7,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
-
+/**
+ * Clase Ghost
+ * Crea y recibe los valores de los fantasmas
+ */
 public abstract class Ghost {
     //Anim Vars
     Timer animTimer;
@@ -66,6 +69,16 @@ public abstract class Ghost {
     BFSFinder baseReturner;
 
     protected PacBoard parentBoard;
+
+    /**
+     * public Ghost
+     * Crealos fantasmams recibiendo una posicion en X, una posicion en Y,
+     * un mapa donse se graficara y un parametro de velocidad
+     * @param x
+     * @param y
+     * @param pb
+     * @param ghostDelay
+     */
 
     public Ghost (int x, int y,PacBoard pb,int ghostDelay) {
 
@@ -243,7 +256,10 @@ public abstract class Ghost {
     //get Move Based on AI
     public abstract moveType getMoveAI();
 
-    //get possible Moves
+    /**
+     * metodo getPossibleMoves
+     * @return retorna un arrayList con los posibles movimientos del fantasma
+     */
     public ArrayList<moveType> getPossibleMoves(){
         ArrayList<moveType> possibleMoves = new ArrayList<>();
 
@@ -269,6 +285,10 @@ public abstract class Ghost {
         return possibleMoves;
     }
 
+    /**
+     * metodo getGhostImage
+     * @return activa las imagenes cuando se realiza un movimiento
+     */
     public Image getGhostImage(){
         if(!isDead) {
             if (!isWeak) {

@@ -1,6 +1,11 @@
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * Clase MapData
+ * Es donde se define las caulidades que debe de tener el mapa
+ * Ademas de las posicion para fantasmas
+ */
 public class MapData {
 
     private int x;

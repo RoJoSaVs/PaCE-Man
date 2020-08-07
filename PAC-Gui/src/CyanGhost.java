@@ -4,13 +4,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
-
+/**
+ * Clase CyanGhost con extencion a Ghost
+ * crea el fantasma Cyan, agrega las imagenes y el recorrido que el va a hacer en el mapa
+ */
 public class CyanGhost extends Ghost {
 
     public CyanGhost(int x, int y,PacBoard pb, int ghostDelay){
         super(x,y,pb,ghostDelay);
     }
-
+    /**
+     * metodo loanImagenes
+     * @return las imagenes que se le asignan al fantasma en cada posicion
+     */
     @Override
     public void loadImages(){
         ghostR = new Image[2];

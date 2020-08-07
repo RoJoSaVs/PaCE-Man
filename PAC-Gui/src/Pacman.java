@@ -8,6 +8,10 @@ import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Clase Pacman
+ * Esta clase se encagarr de incializar el pacman
+ */
 public class Pacman implements KeyListener{
 
     //Move Vars
@@ -30,7 +34,13 @@ public class Pacman implements KeyListener{
 
     private PacBoard parentBoard;
 
-
+    /**
+     * PacMAn
+     * crea el pacman en base a los parametros que se brindan
+     * @param x
+     * @param y
+     * @param pb
+     */
     public Pacman (int x, int y,PacBoard pb) {
 
         logicalPosition = new Point(x,y);
@@ -171,6 +181,11 @@ public class Pacman implements KeyListener{
 
     }
 
+    /**
+     * Metodo isPossibleMove
+     * @param move
+     * @return retorna true o flase dependeindo si el movimiento se puede realizar o no
+     */
     public boolean isPossibleMove(moveType move){
         if(logicalPosition.x >= 0 && logicalPosition.x < parentBoard.m_x-1 && logicalPosition.y >= 0 && logicalPosition.y < parentBoard.m_y-1 ) {
             switch(move){
@@ -201,7 +216,11 @@ public class Pacman implements KeyListener{
         //
     }
 
-    //Handle Arrow Keys
+    /**
+     * metodo KeyPressed
+     * se encarga de crear los moviebtos dependiendo de la tecla que se precione
+     * @param ke
+     */
     @Override
     public void keyPressed(KeyEvent ke){
         switch(ke.getKeyCode()){

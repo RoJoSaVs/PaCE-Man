@@ -1,3 +1,9 @@
+/**
+ * Clase GhostData
+ * recibe los parametros que necesita para los fantasma en general
+ * los cuales son Y,X y el tipo de fantasma
+ */
+
 public class GhostData {
     private int x;
     private int y;

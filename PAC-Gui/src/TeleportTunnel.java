@@ -1,5 +1,10 @@
 import java.awt.*;
 
+/**
+ * Clase TeleporTunnel
+ * Esta calse permite que cuando un fanyasma muera llegue al punto central del mapa para inicializarse nuevamente
+ * durante el proceso solo se veran los ojos del fantasma y su inica funcion es llegar al centro
+ */
 public class TeleportTunnel {
 
     private Point from;

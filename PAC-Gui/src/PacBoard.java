@@ -10,6 +10,10 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import static java.lang.Thread.sleep;
 
+/**
+ * Clase PAcBoard
+ * Se encarga de todas las funcionalidades del juegos
+ */
 public class PacBoard extends Client  {
 
 
@@ -207,6 +211,12 @@ public class PacBoard extends Client  {
         siren.start();
     }
 
+    /**
+     * metodo CrearFantasma
+     * @return El fantasma que se seleciona para crear
+     * @param n
+     * @param m
+     */
     public void CrearFantasma( int n, int m){
        // public void CrearFantasma( ){
         //Fantasmas
@@ -240,6 +250,11 @@ public class PacBoard extends Client  {
 
     }
 
+    /**
+     * metodo CrearPowerUP
+     * @return genera los powerups cuando es llamado
+     *
+     */
     public void CrearPowerUp(){
         for(int ms=0 ;ms<2;ms++){
             try {
@@ -248,6 +263,11 @@ public class PacBoard extends Client  {
         }
     }
 
+    /**
+     * metodo CrearFruit
+     * @return genera las frutas cuando es llamado
+     *
+     */
     public void CrearFruit(){
         for(int ms=1 ;ms<5;ms++){
             try {
@@ -256,7 +276,11 @@ public class PacBoard extends Client  {
         }
     }
 
-
+    /**
+     * metodo collisionTest
+     * @return al llamarlo verifica si exite una collion y si se puede comer al fantasma dependiendo del modo en que se encuentre
+     * @return verifica si el jugador le quedan vidas depues de la colision
+     */
     private void collisionTest(){
         //pacman = new Pacman(md.getPacmanPosition().x,md.getPacmanPosition().y,this);
         Rectangle pr = new Rectangle(pacman.pixelPosition.x+13,pacman.pixelPosition.y+13,2,2);
@@ -333,7 +357,11 @@ public class PacBoard extends Client  {
         //}
     }
 
-
+    /**
+     * metodo update
+     * @return un puntaje al verificar si el jugador se comio un puntol o una fruta
+     * @return si el jugador se come un Powerup le brinda la funcion de comerse a los fantasmas por un cierto tiempo
+     */
     private void update(){
 
         Food foodToEat = null;
@@ -456,6 +484,11 @@ public class PacBoard extends Client  {
         }
     } */
 
+    /**
+     * metodo PaintComponent
+     * @return se encarga de graficar todos los componentes
+     * @param g
+     */
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -562,7 +595,11 @@ public class PacBoard extends Client  {
 
     }
 
-
+    /**
+     * metodo ProcessEvent
+     * @return se encagar de verifiar que sucede en cada envento
+     * @param ae
+     */
     @Override
     public void processEvent(AWTEvent ae){
 

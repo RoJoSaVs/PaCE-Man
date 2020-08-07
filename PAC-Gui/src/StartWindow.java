@@ -5,6 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+/**
+ * clase StartWindow
+ * Crea la ventana incial del juego con sus imagenes y botones
+ */
 public class StartWindow extends JFrame {
 
     public StartWindow(){

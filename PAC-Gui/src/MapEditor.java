@@ -7,6 +7,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * Clase MapEditor
+ * Se encarga de leer el mapa que se me brinda para graficarlo
+ */
 public class MapEditor extends JFrame {
 
     public MapEditor(){
@@ -85,7 +89,11 @@ public class MapEditor extends JFrame {
         setVisible(true);
     }
 
-    //Resolve Map
+    /**
+     * metodo compileMap
+     * @param input
+     * @return se encargar de identificar como crear el mapa, de identificar si debe colocar un fantasma, una fruta o cualquier otro objeto
+     */
     public static MapData compileMap(String input){
         int mx = input.indexOf('\n');
         int my = StringHelper.countLines(input);

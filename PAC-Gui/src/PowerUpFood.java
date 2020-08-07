@@ -1,5 +1,9 @@
 import java.awt.*;
 
+/**
+ * Clase PowerUpFood
+ * clase donde se crean los powerups
+ */
 public class PowerUpFood {
 
     public Point position;

@@ -3,6 +3,10 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * Clase OrangeGhost con extencion a Ghost
+ * crea el fantasma Orange, agrega las imagenes y el recorrido que el va a hacer en el mapa
+ */
 public class Orangeghost extends Ghost {
 
     BFSFinder bfs;
@@ -11,6 +15,10 @@ public class Orangeghost extends Ghost {
         super(x,y,pb,ghostDelay);
     }
 
+    /**
+     * metodo loanImagenes
+     * @return las imagenes que se le asignan al fantasma en cada posicion
+     */
     @Override
     public void loadImages(){
         ghostR = new Image[2];

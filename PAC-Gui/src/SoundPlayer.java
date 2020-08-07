@@ -2,6 +2,10 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
+/**
+ * Clase SoundPlayer
+ * Esta clase se encarga de brindar el sonido para cada momento del juego
+ */
 public class SoundPlayer {
     public static synchronized void playAsync(final String name) {
         new Thread(new Runnable() {

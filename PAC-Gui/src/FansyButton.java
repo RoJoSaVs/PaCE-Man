@@ -6,7 +6,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 
-
+/**
+ * Clase Fansy Button
+ * @return agrega un estilo de letar peronalizado al inicio del juego
+ */
 public class FansyButton extends JLabel implements MouseListener {
 
     ActionListener myAL;

@@ -2,6 +2,10 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
+/**
+ * clase LoopPlayer
+ * Permite que el juego se mantenga ejecutando
+ */
 
 public class LoopPlayer {
 

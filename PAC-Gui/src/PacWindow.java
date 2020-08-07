@@ -6,6 +6,10 @@ import java.awt.*;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * Clase PacWindow
+ * crea la ventana en donde se corre el juego
+ */
 public class PacWindow extends JFrame {
 
     public PacWindow(){
@@ -54,6 +58,11 @@ public class PacWindow extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * PacWindow
+     * Agrega el nombre, las vidas, el score y el mapa del juego a la ventana
+     * @param md
+     */
     public PacWindow(MapData md){
         setTitle("AKP Pacman v1.0");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -81,7 +90,13 @@ public class PacWindow extends JFrame {
         setVisible(true);
     }
 
-
+    /**
+     * mortodo loadMap
+     * @param mx
+     * @param my
+     * @param relPath
+     * @return devuelve la lectura del mapa para bcrearlo
+     */
     public int[][] loadMap(int mx,int my,String relPath){
         try {
             Scanner scn = new Scanner(this.getClass().getResourceAsStream(relPath));
@@ -98,6 +113,7 @@ public class PacWindow extends JFrame {
         }
         return null;
     }
+
 
     public MapData getMapFromResource(String relPath){
         String mapStr = "";
@@ -119,7 +135,11 @@ public class PacWindow extends JFrame {
         return MapEditor.compileMap(mapStr);
     }
 
-    //Dynamically Generate Map Segments
+    /**
+     * metood adjustMap
+     * @return ingreasa los segmentos graficos del mapa segun correspondan
+     * @param mapd
+     */
     public void adjustMap(MapData mapd){
         int[][] map = mapd.getMap();
         int mx=mapd.getX();

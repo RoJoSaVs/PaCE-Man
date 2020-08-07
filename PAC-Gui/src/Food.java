@@ -1,5 +1,8 @@
 import java.awt.*;
-
+/**
+ * Clase Food
+ * crea frutas en posiciones X y Y
+ */
 public class Food {
 
     public Point position;

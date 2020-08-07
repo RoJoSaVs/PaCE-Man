@@ -1,4 +1,7 @@
-
+/**
+ * Calse Main
+ * Es la que corre el juego
+ */
 public class Main{
 
 
