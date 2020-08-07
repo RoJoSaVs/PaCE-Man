@@ -4,6 +4,11 @@
 #include "constantes.h"
 
 //gcc Logic.c ../sockets/server/Server.c -o Logic -lws2_32
+/**
+ * Es la funcion encargada de interpretar los datos provenientes desde el cliente
+ * se encarga de dividir el mensaje y ajustar los valores que se indiquen en el mensaje
+ * @param ptr ->Contiene los datos brindado por los sockets
+*/
 void parseSocketMessage(char *ptr){
 
     if (strcmp(ptr, "G") == 0){
