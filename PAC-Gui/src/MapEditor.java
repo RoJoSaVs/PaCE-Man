@@ -111,6 +111,10 @@ public class MapEditor extends JFrame {
                 map[i][j] = 0;
                 customMap.getGhostsData().add(new GhostData(i,j,ghostType.CYAN));
             }
+            if(c == '4'){
+                map[i][j] = 0;
+                customMap.getGhostsData().add(new GhostData(i,j,ghostType.ORANGE));
+            }
             if(c == 'P'){
                 map[i][j] = 0;
                 customMap.setPacmanPosition(new Point(i,j));

@@ -36,7 +36,7 @@ public class StartWindow extends JFrame {
         //buttonsC.setLayout(new FlowLayout(FlowLayout.LEADING,20,10));
         buttonsC.setLayout(new BoxLayout(buttonsC,BoxLayout.Y_AXIS));
         FansyButton startButton = new FansyButton("Start Game");
-        FansyButton customButton = new FansyButton("Customize Game");
+
 
         startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         customButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -49,17 +49,10 @@ public class StartWindow extends JFrame {
                 dispose();
             }
         });
-
-        customButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                MapEditor me = new MapEditor();
-                dispose();
-            }
-        });
+        
 
         buttonsC.add(startButton);
-        buttonsC.add(customButton);
+
 
         getContentPane().add(buttonsC);
 
