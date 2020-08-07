@@ -9,10 +9,10 @@ X====X_XX_XXXOXXX_XX_X=====
 X====X_XX_________XX_X=====
 X====X_XX__XXYXX__XX_X=====
 XXXXXX_XX__X===X__XX_XXXXXX
-X2====_____X=B=X_____====1X
+X23===_____X=B=X_____===41X
 XXXXXX_XX__X===X__XX_XXXXXX
 =====X_XX__XXXXX__XX_X=====
-=====X3XX_________XX4X=====
+=====X_XX_________XX_X=====
 =====X_XX_XXXFXXX_XX_X=====
 XXXXXX_XX_XXX_XXX_XX_XXXXXX
 X______XX_________XX______X
