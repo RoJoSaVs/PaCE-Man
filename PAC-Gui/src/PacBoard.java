@@ -591,10 +591,10 @@ public class PacBoard extends Client  {
                     CrearFantasma(2,velo);
                 }else if(Fantasma.equals("3")){
                     CrearFantasma(3,velo);
-                }else if(Fantasma.equal("4")){
+                }else if(Fantasma.equals("4")){
                     CrearPowerUp();
                 }
-                else if(Fantasma.equal("5")){
+                else if(Fantasma.equals("5")){
                     CrearFruit();
                 }
             }
