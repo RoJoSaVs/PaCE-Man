@@ -179,11 +179,11 @@ public class PacBoard extends Client  {
         }
 
         pfoodImage = new Image[5];
-        for(int ms=1 ;ms<5;ms++){
+        /*for(int ms=1 ;ms<5;ms++){
             try {
                 pfoodImage[ms] = ImageIO.read(this.getClass().getResource("resources/images/food/"+ms+".png"));
             }catch(Exception e){}
-        }
+        }*/
         try{
             foodImage = ImageIO.read(this.getClass().getResource("resources/images/food.png"));
             goImage = ImageIO.read(this.getClass().getResource("resources/images/gameover.png"));
