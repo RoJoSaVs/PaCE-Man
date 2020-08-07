@@ -3,11 +3,11 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class OrangeGhost extends Ghost {
+public class Orangeghost extends Ghost {
 
     BFSFinder bfs;
 
-    public OrangeGhost(int x, int y,PacBoard pb, int ghostDelay ){
+    public Orangeghost( int x, int y, PacBoard pb, int ghostDelay ){
         super(x,y,pb,ghostDelay);
     }
 
