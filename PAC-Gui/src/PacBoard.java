@@ -232,7 +232,7 @@ public class PacBoard extends Client  {
                 if(n == 4){
                     switch(gd.getType()) {
                         case CYAN:
-                            ghosts.add(new OrangeGhost(gd.getX(), gd.getY(), this));
+                            ghosts.add(new Orangeghost(gd.getX(), gd.getY(), this));
                             break;}}
 
             }

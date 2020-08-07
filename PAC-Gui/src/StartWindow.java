@@ -39,7 +39,7 @@ public class StartWindow extends JFrame {
 
 
         startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        customButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        
 
         startButton.addActionListener(new ActionListener() {
             @Override
