@@ -179,7 +179,7 @@ public class PacBoard extends Client  {
         }
 
         pfoodImage = new Image[5];
-        for(int ms=0 ;ms<5;ms++){
+        for(int ms=1 ;ms<5;ms++){
             try {
                 pfoodImage[ms] = ImageIO.read(this.getClass().getResource("resources/images/food/"+ms+".png"));
             }catch(Exception e){}
@@ -233,6 +233,14 @@ public class PacBoard extends Client  {
             }
         } n = 0;
 
+    }
+
+    public void CrearPowerUp(){
+        for(int ms=0 ;ms<2;ms++){
+            try {
+                pfoodImage[ms] = ImageIO.read(this.getClass().getResource("resources/images/food/0.png"));
+            }catch(Exception e){}
+        }
     }
 
 
@@ -576,6 +584,8 @@ public class PacBoard extends Client  {
                     CrearFantasma(2,velo);
                 }else if(Fantasma.equals("3")){
                     CrearFantasma(3,velo);
+                }else if(Fantasma.equal("4")){
+                    CrearPowerUp();
                 }
             }
 
