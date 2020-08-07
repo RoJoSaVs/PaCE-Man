@@ -21,9 +21,21 @@
 #pragma comment (lib, "Ws2_32.lib")
 // #pragma comment (lib, "Mswsock.lib")
 
+
+/**
+ * Funcion que envía mensajes al cliente
+ * @param message_to_client-> mensaje a enviar
+ * @param size_of_message-> longitud del mensaje a enviar
+ * @param DEFAULT_BUFLEN-> longitud de la cadena del mensaje a recibir
+ * @param DEFAULT_PORT-> puerto al que se conectarán los sockets
+ * @param error_size-> Longitud del mensaje de error
+ * @return mensaje del cliente, o mensaje de error
+*/
+
 char* send_to_client(char* message_to_client,int size_of_message,int DEFAULT_BUFLEN, const char* DEFAULT_PORT,int error_size)
 {
-    
+    //variables del socket
+
     WSADATA wsaData;
     int iResult;
 
@@ -37,7 +49,7 @@ char* send_to_client(char* message_to_client,int size_of_message,int DEFAULT_BUF
     char recvbuf[DEFAULT_BUFLEN];
     int recvbuflen = DEFAULT_BUFLEN;
 
-    //variables 
+    //variables del mensaje
 
     char respuesta[size_of_message];
 
@@ -61,7 +73,7 @@ char* send_to_client(char* message_to_client,int size_of_message,int DEFAULT_BUF
     hints.ai_protocol = IPPROTO_TCP;
     hints.ai_flags = AI_PASSIVE;
 
-    // Resolve the server address and port
+    // resuelve la direccion y el puerto de los sockets
     iResult = getaddrinfo(NULL, DEFAULT_PORT, &hints, &result);
     if ( iResult != 0 ) {
         printf("getaddrinfo failed with error: %d\n", iResult);
@@ -69,7 +81,7 @@ char* send_to_client(char* message_to_client,int size_of_message,int DEFAULT_BUF
         return error;
     }
 
-    // Create a SOCKET for connecting to server
+    // crea un socket para conectarse con el cliente
     ListenSocket = socket(result->ai_family, result->ai_socktype, result->ai_protocol);
     if (ListenSocket == INVALID_SOCKET) {
         printf("socket failed with error: %ld\n", WSAGetLastError());
@@ -78,7 +90,7 @@ char* send_to_client(char* message_to_client,int size_of_message,int DEFAULT_BUF
         return error;
     }
 
-    // Setup the TCP listening socket
+    // Configura el TCP del socket para que escuche
     iResult = bind( ListenSocket, result->ai_addr, (int)result->ai_addrlen);
     if (iResult == SOCKET_ERROR) {
         printf("bind failed with error: %d\n", WSAGetLastError());
@@ -98,7 +110,7 @@ char* send_to_client(char* message_to_client,int size_of_message,int DEFAULT_BUF
         return error;
     }
 
-    // Accept a client socket
+    // Acepta la conexión de un cliente
     ClientSocket = accept(ListenSocket, NULL, NULL);
     if (ClientSocket == INVALID_SOCKET) {
         printf("accept failed with error: %d\n", WSAGetLastError());
@@ -107,10 +119,10 @@ char* send_to_client(char* message_to_client,int size_of_message,int DEFAULT_BUF
         return error;
     }
 
-    // No longer need server socket
+    // No se necesita más la conexión al socket, por lo que la cierra
     closesocket(ListenSocket);
 
-    // Receive until the peer shuts down the connection
+    // Recibe lo que el cliente envie hasta que se cierre la conexión
     do {
 
         iResult = recv(ClientSocket, recvbuf, recvbuflen, 0);
@@ -118,7 +130,7 @@ char* send_to_client(char* message_to_client,int size_of_message,int DEFAULT_BUF
         if (iResult > 0) {
             //printf("Bytes received: %d\n", iResult);
 
-        // Echo the buffer back to the sender
+        // Envía el mensaje hacia el cliente
             strcpy(respuesta,message_to_client);
             iSendResult = send( ClientSocket, respuesta, sizeof(respuesta), 0 );
             if (iSendResult == SOCKET_ERROR) {
@@ -140,7 +152,7 @@ char* send_to_client(char* message_to_client,int size_of_message,int DEFAULT_BUF
 
     } while (iResult > 0);
 
-    // shutdown the connection since we're done
+    // Termina la conexión
     iResult = shutdown(ClientSocket, SD_SEND);
     if (iResult == SOCKET_ERROR) {
         printf("shutdown failed with error: %d\n", WSAGetLastError());
@@ -149,12 +161,9 @@ char* send_to_client(char* message_to_client,int size_of_message,int DEFAULT_BUF
         return error;
     }
 
-    // cleanup
+    // Limpia el socket
     closesocket(ClientSocket);
     WSACleanup();
-
-    //printf("diay porque no imprimio");
-    //printf("%d", sizeof(desde_cliente));
 
     return desde_cliente;
 }
