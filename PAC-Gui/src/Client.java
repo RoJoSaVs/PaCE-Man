@@ -29,7 +29,7 @@ public class Client extends JPanel{
             return modifiedSentence;
         }
         catch (IOException exception){
-            return "w";//w es el símbolo de error de nuestro programa
+            return "1234567890123456789";//w es el símbolo de error de nuestro programa
         }
     }
 
