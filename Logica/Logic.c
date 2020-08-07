@@ -52,33 +52,33 @@ void createFunction(char *ptr, struct constantes constantes){
         
         if (strcmp(ptr, "B") == 0){
             ghost = createBlinky();
-            sprintf(totalData, "%d %d %d %d %c ", ghost.chasing, ghost.position.posX, 
-                    ghost.position.posY, ghost.speed, ghost.colorId);
-            //printf("%s", totalData);
-            //printf("Blinky\n");
+            sprintf(totalData, "%c %d %d %d %d ",ghost.colorId, ghost.speed, ghost.position.posX, 
+                    ghost.position.posY, ghost.chasing);
+            printf("%s", totalData);
+            printf("Blinky\n");
 
         }
 
         else if (strcmp(ptr, "I") == 0){
             ghost = createInky();
-            sprintf(totalData, "%d %d %d %d %c ", ghost.chasing, ghost.position.posX, 
-                    ghost.position.posY, ghost.speed, ghost.colorId);
+            sprintf(totalData, "%c %d %d %d %d ",ghost.colorId, ghost.speed, ghost.position.posX, 
+                    ghost.position.posY, ghost.chasing);
             printf("%s", totalData);
             printf("Inky\n");
         }
 
         else if (strcmp(ptr, "P") == 0){
             ghost = createPinky();
-            sprintf(totalData, "%d %d %d %d %c ", ghost.chasing, ghost.position.posX, 
-                    ghost.position.posY, ghost.speed, ghost.colorId);
+            sprintf(totalData, "%c %d %d %d %d ",ghost.colorId, ghost.speed, ghost.position.posX, 
+                    ghost.position.posY, ghost.chasing);
             printf("%s", totalData);
             printf("Pinky\n");
         }
         
         else if (strcmp(ptr, "C") == 0){
             ghost = createClyde();
-            sprintf(totalData, "%d %d %d %d %c ", ghost.chasing, ghost.position.posX, 
-                    ghost.position.posY, ghost.speed, ghost.colorId);
+            sprintf(totalData, "%c %d %d %d %d ",ghost.colorId, ghost.speed, ghost.position.posX, 
+                    ghost.position.posY, ghost.chasing);
             printf("%s", totalData);
             printf("Clyde\n");
         }
@@ -142,8 +142,8 @@ void setSpeedFunction(char *ptr){
         ptr = strtok(NULL, " ");
         speed = atoi(ptr);
         ghost = editSpeed(ghost, speed);
-        sprintf(totalData, "%d %d %d %d %c ", ghost.chasing, ghost.position.posX, 
-                    ghost.position.posY, ghost.speed, ghost.colorId);
+        sprintf(totalData, "%c %d %d %d %d ",ghost.colorId, ghost.speed, ghost.position.posX, 
+                    ghost.position.posY, ghost.chasing);
         //printf("%s", totalData);
        // printf("Blinky\n");
     }
@@ -153,8 +153,8 @@ void setSpeedFunction(char *ptr){
         ptr = strtok(NULL, " ");
         speed = atoi(ptr);
         ghost = editSpeed(ghost, speed);
-        sprintf(totalData, "%d %d %d %d %c ", ghost.chasing, ghost.position.posX, 
-                    ghost.position.posY, ghost.speed, ghost.colorId);
+        sprintf(totalData, "%c %d %d %d %d ",ghost.colorId, ghost.speed, ghost.position.posX, 
+                    ghost.position.posY, ghost.chasing);
         //printf("%s", totalData);
         //printf("Inky\n");
     }
@@ -163,8 +163,8 @@ void setSpeedFunction(char *ptr){
         ptr = strtok(NULL, " ");
         speed = atoi(ptr);
         ghost = editSpeed(ghost, speed);
-        sprintf(totalData, "%d %d %d %d %c ", ghost.chasing, ghost.position.posX, 
-                    ghost.position.posY, ghost.speed, ghost.colorId);
+        sprintf(totalData, "%c %d %d %d %d ",ghost.colorId, ghost.speed, ghost.position.posX, 
+                    ghost.position.posY, ghost.chasing);
         printf("%s", totalData);
         printf("Pinky\n");
     }
@@ -173,8 +173,8 @@ void setSpeedFunction(char *ptr){
         ptr = strtok(NULL, " ");
         speed = atoi(ptr);
         ghost = editSpeed(ghost, speed);
-        sprintf(totalData, "%d %d %d %d %c ", ghost.chasing, ghost.position.posX, 
-                    ghost.position.posY, ghost.speed, ghost.colorId);
+        sprintf(totalData, "%c %d %d %d %d ",ghost.colorId, ghost.speed, ghost.position.posX, 
+                    ghost.position.posY, ghost.chasing);
             printf("%s", totalData);
         printf("Clyde\n");
     }

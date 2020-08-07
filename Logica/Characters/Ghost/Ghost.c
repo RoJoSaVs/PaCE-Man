@@ -6,28 +6,28 @@
  * Crea el struct que define a Blinky
 */
 struct Ghost createBlinky(){
-    struct Ghost Blinky = { {.posX = 11, .posY = 14,}, true, 5, 'R' };
+    struct Ghost Blinky = { {.posX = 25, .posY = 11,}, true, 5, 'R' };
     return Blinky;
 }
 /**
  * Crea el struct que define a Inky
 */
 struct Ghost createInky(){
-    struct Ghost Inky = { {.posX = 11, .posY = 14,}, true, 5, 'B' };
+    struct Ghost Inky = { {.posX = 17, .posY = 9,}, true, 5, 'B' };
     return Inky;
 }
 /**
  * Crea el struct que define a Pinky
 */
 struct Ghost createPinky(){
-    struct Ghost Pinky = { {.posX = 11, .posY = 14,}, true, 5, 'P' };
+    struct Ghost Pinky = { {.posX = 6, .posY = 8,}, true, 5, 'P' };
     return Pinky;
 }
 /**
  * Crea el struct que define a Clyde
 */
 struct Ghost createClyde(){
-    struct Ghost Clyde = { {.posX = 11, .posY = 14,}, true, 5, 'O' };
+    struct Ghost Clyde = { {.posX = 9, .posY = 13,}, true, 5, 'O' };
     return Clyde;
 }
 /**
@@ -36,7 +36,7 @@ struct Ghost createClyde(){
  * @param speed (max = 10)
 */
 struct Ghost editSpeed(struct Ghost ghost, int speed){
-    if ((speed > 0) && (speed < 11)){
+    if ((speed > 0) && (speed < 10)){
         ghost.speed = speed;
         return ghost;
     }
@@ -56,18 +56,7 @@ struct Ghost editMode(struct Ghost ghost, bool chasingMode){
     ghost.chasing = chasingMode;
     return ghost;
 }
-struct Coords move[20];
-int tablero[10][10] = {
-    {1,1,1,1,1,1,1,1,1,1},
-    {0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0}};
+
 /**
  * @param ghostPosX posicion del fantasma en la columna
  * @param ghostPosY posicion del fantasma en la fila
@@ -78,23 +67,3 @@ void BlinkyAlgorithm(int ghostPosX, int ghostPosY, int paceManX, int paceManY, i
     //direction = {direccion en columnas, direccion en filas}
     
 }
-
-
-
-// int main(){
-//     BlinkyAlgorithm(0, 0, 0, 9, 0);
-//     for(int i = 0; i < 10; i++){
-//         printf("%d%d\n", move[i].posX, move[i].posY);
-//     }
-//     //printf("%d", 10);
-//     return 0;
-// }
-    /*struct Ghost Blinky = createBlinky();
-    printf("%d\n", Blinky.speed);
-    printf("%s\n", Blinky.chasing ? "true" : "false");
-    Blinky = editSpeed(Blinky, 10);
-    Blinky = editMode(Blinky, false);
-    printf("%d\n", Blinky.speed);
-    printf("%s", Blinky.chasing ? "true" : "false");
-
-}/**/
