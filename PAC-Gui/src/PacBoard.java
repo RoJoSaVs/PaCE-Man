@@ -573,7 +573,7 @@ public class PacBoard extends Client  {
             Client client=new Client();
             String Servermessage = "1234567890123456789";
             try {
-                Servermessage = client.send_to_server(str1);
+                Servermessage = client.send_to_server("str1");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -591,16 +591,19 @@ public class PacBoard extends Client  {
             int velo = Integer.parseInt(Velocidad);
 
             if(!Servermessage.equals("1234567890123456789")){
-                if(Fantasma.equals("1")){
+                if(Fantasma.equals("B")){
                     CrearFantasma(1,velo);
-                }else if(Fantasma.equals("2")){
+                }else if(Fantasma.equals("P")){
                     CrearFantasma(2,velo);
-                }else if(Fantasma.equals("3")){
+                }else if(Fantasma.equals("C")){
                     CrearFantasma(3,velo);
-                }else if(Fantasma.equals("4")){
+                }else if(Fantasma.equals("I")){
+                    CrearFantasma(4,velo);
+                }
+                else if(Fantasma.equals("P")){
                     CrearPowerUp();
                 }
-                else if(Fantasma.equals("5")){
+                else if(Fantasma.equals("F")){
                     CrearFruit();
                 }
             }
